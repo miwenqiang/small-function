@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>返回顶部</title>
+  <style>
+  .top{
+    display:block;
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+    color:#fff;
+    font-size:40px;
+    text-decoration:none;
+    position:fixed;
+    right:100px;
+    bottom:100px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 5px;
+    display: none;
+  }
+  .top:hover{
+    background-color: #093;
+  }
+  </style>
+</head>
+<body>
+
+  <a href="javascript:;" class="top">△</a>
+  <script src="./js/jquery.js"></script>
+  <script>
+
+      for (var i = 0; i < 100; i++) {
+        document.write("<h1>"+i+"</h1>")
+      }
+
+
+  $(window).scroll(function(){
+    var t = $(this).scrollTop()
+    console.log(t)
+      if(t>300){
+        $('.top').fadeIn()
+      }else{
+        $('.top').fadeOut()
+      }
+  })
+$('.top').click(function(){
+  $('body,html').stop().animate({scrollTop:0},500)
+})
+
+
+  </script>
+</body>
+</html>
