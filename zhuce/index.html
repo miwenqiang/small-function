@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    table{
+      margin:20px auto;
+      border:1px solid red;
+    }
+    td{
+      height:40px;
+      height: 40px;
+      font-size: 24px;
+      padding:5px;
+      width:200px;
+      text-align:right;
+      background-color:teal;
+    }
+    input,select{
+      width: 200px;
+      height: 40px;
+      font-size:24px;
+    }
+    [type=radio]{
+      width: 30px;
+      height: 20px;
+      text-align: left;
+    }
+    [type=submit],[type=reset]{
+      width: 150px;
+      height: 40px;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 24px;
+    }
+    td:first-child{
+      width: 150px;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <td>姓名：</td>
+      <td><input type="text" id="st1"></td>
+    </tr>
+    <tr>
+      <td>电话：</td>
+      <td><input type="text" id="st2"></td>
+    </tr>
+    <tr>
+      <td>密码：</td>
+      <td><input type="password" id="st3"></td>
+    </tr>
+    <tr>
+      <td>确认密码：</td>
+      <td><input type="password" id="st4"></td>
+    </tr>
+    <tr>
+      <td>性别：</td>
+      <td style="text-align:left">
+        <input type="radio" name="sex" id="sex1">男
+        <input type="radio" name="sex"  id="sex2">女
+      </td>
+    </tr>
+    <tr>
+      <td>学历：</td>
+      <td>
+        <select name="" id="select">
+          <option value="高中">高中</option>
+          <option value="大专">大专</option>
+          <option value="本科">本科</option>
+          <option value="本科以上">本科以上</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="submit" value="提交" id="btn1">
+        <input type="reset" value="重置" id="btn2">
+      </td>
+    </tr>
+
+  </table>
+
+  <script>
+  window.onload=function(){
+    function G(id){
+      return document.getElementById(id)
+    }
+    function check(){
+      if(G('st3').value !== G('st4').value){
+          alert("俩次密码输入不一致")
+      }
+    }
+    function cs(){
+      var str =''
+      str+='\n 姓名:';
+      str+=G('st1').value
+      str+='\n 手机:';
+      str+=G('st2').value
+      str+='\n 性别:';
+      str+=G('sex1').checked?"男":"女"
+      str+='\n 学历:';
+      str+=G('select').value
+      alert("用户信息：\n"+str)
+    }
+
+    var re1 = /^[\u4e00-\u9fa5]{0,4}$/
+    var re2 = /^1\d{10}$/
+    var re3 = /^\w{6,16}$/
+    G('st1').onblur = function(){
+      if(re1.test(G('st1').value)){
+        console.log('输入格式正确')
+      }else{
+        console.log('请重新输入')
+      }
+    }
+    G('st2').onblur = function(){
+      if(re2.test(G('st2').value)){
+        console.log('输入格式正确')
+      }else{
+        console.log('请重新输入')
+      }
+    }
+    G('st3').onblur = function(){
+      if(re3.test(G('st3').value)){
+        console.log('输入格式正确')
+      }else{
+        console.log('请重新输入')
+      }
+    }
+
+    G('st4').onblur = function(){
+      check()
+    }
+    G('btn1').onclick =function(){
+      cs()
+    }
+    G('btn2').onclick = function(){
+      G('st1').value ="";
+      G('st2').value ="";
+      G('st3').value ="";
+      G('st4').value ="";
+      G('select').value ="";
+    }
+  }
+  </script>
+</body>
+</html>
