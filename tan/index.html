@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		h3{margin:0;padding:0;}
+		body{
+			background-color: #c1c1c1;
+		}
+		.box{
+			width: 860px;
+			height: 600px;
+			margin:100px auto;
+		}
+		.item{
+			position: relative;
+			width:90%;
+			height: 270px;
+			margin:0 auto;
+			background-image: url(images/1.jpg);
+			background-size: 100% 100%;
+		}
+		.btn{
+			position:absolute;
+			right:29px;
+			bottom:74px;
+			width:110px;
+			height:35px;
+			border: none;
+			background-color: #b52428;
+			color:#fff;
+			cursor:pointer;
+			font-weight: 500;
+		}
+		.tanchuang {
+			position:fixed;
+			left:35%;
+			top: 35%;
+			width:396px;
+			height: 178px;
+			display: none;
+		}
+		.tanchuang h3{
+			width: 398px;
+			height: 40px;
+			background-color: #f3f3f3;
+			line-height: 40px;
+			text-indent: 15px;
+		}
+		.box2{
+			width: 398px;
+			height: 138px;
+			background-color: #fff;
+		}
+		.box3{
+			float: left;
+			margin-left: 56px;
+			padding-top: 20px;
+			width: 44px;
+			height: 44px;
+		}
+		.box4{
+			float: left;
+			padding-top: 20px;
+			width: 290px;
+			height: 44px;
+			line-height: 44px;
+			font-size: 20px;
+		}
+		.box4 span{
+			padding-left: 10px;
+		}
+		.box5{
+			clear: both;
+			width: 176px;
+			height: 30px;
+			margin: 0 auto;
+			padding-top: 10px;
+		}
+		.btn1{
+			width:76px;
+			height: 30px;
+			border: none;
+			background-color: #b52428;
+			cursor:pointer;
+		}
+		.btn2{
+			margin-left: 12px;
+			width:76px;
+			height: 30px;
+			border: none;
+			background-color: #f5f4f4;
+			cursor:pointer;
+		}
+
+	</style>
+</head>
+<body>
+	
+		<div class="box">
+			<div class="item">
+				<input id="btn" class="btn" type="submit" value="确认收货">
+			</div>
+			<div class="tanchuang" id="tanchuang1">
+				<h3>确认收货</h3>
+				<div class="box2">
+					<div class="box3">	
+						<img src="images/2.jpg" alt="">
+					</div>
+					<div class="box4">
+						<span>请确认是否收到货?</span>
+					</div>
+					<div class="box5">
+						<button class="btn1" id="btn1">确认</button>
+						<button class="btn2" id="btn2">取消</button>
+					</div>
+				</div>
+			</div>
+			<div class="tanchuang" id="tanchuang2">
+				<h3>确认收货</h3>
+				<div class="box2">
+					<div class="box3">	
+						<img src="images/3.jpg" alt="">
+					</div>
+					<div class="box4">
+						<span>确认收货成功!</span>
+					</div>
+					<div class="box5">
+						<button class="btn1" id="btn3">立即评价</button>
+						<button class="btn2" id="btn4">取消</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	<script>
+	window.onload=function(){
+
+		var btn = document.getElementById('btn');
+		var btn1 = document.getElementById('btn1');
+		var btn2 = document.getElementById('btn2');
+		var btn3 = document.getElementById('btn3');
+		var btn4 = document.getElementById('btn4');
+		var tanchuang1 = document.getElementById('tanchuang1');
+		var tanchuang2 = document.getElementById('tanchuang2');
+		
+		btn.onclick=function(){
+			tanchuang1.style.display="block";
+		}
+		btn1.onclick=function(){
+			tanchuang1.style.display="none";
+			tanchuang2.style.display="block";
+		}
+		btn2.onclick=function(){
+			tanchuang1.style.display="none"
+		}
+		btn3.onclick=function(){
+			tanchuang2.style.display="none"
+		}
+		btn4.onclick=function(){
+			window.location.reload()
+		}
+	}	
+	</script>
+</body>
+</html>
